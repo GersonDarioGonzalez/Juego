@@ -1,0 +1,14 @@
+import greenfoot.*;
+
+
+public class Monedas extends Actor
+{
+    public int m=0;
+    
+    public void addMonedas(int num){
+      m = m + num;
+    }
+    public void act() 
+    {  setImage(new GreenfootImage("Monedas: "+m, 24, Color.GREEN, Color.BLACK));
+    }    
+}
