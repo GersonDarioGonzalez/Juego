@@ -1,0 +1,292 @@
+import greenfoot.*;
+import java.util.List;
+
+public class Escenario extends World
+{   private boolean respuestaCorrecta, siHayPreg;
+    private Question preg = new Question();
+    private Counter cont;
+    private int co, C;
+    private Boton buttom[];
+    private Label n;
+    private Label2 l, intro;
+    private Monedas m;
+    private Vida v;
+    
+    
+    public Escenario()
+    {  super(1000, 565, 1);  
+       respuestaCorrecta = false;
+       siHayPreg = false;
+       co =0;  C=1;
+       buttom = new Boton[3];
+       Greenfoot.setSpeed(17);
+       m = new Monedas();  
+       v = new Vida(); 
+       cont = new Counter();  addObject(cont, 80, 30);
+       intro = new Label2(preg.pista[16], 33);  addObject(intro, 500, 280);
+      
+    }
+    
+    public void act()
+    {  if(C==1){
+         removeObject(intro);
+       }
+       controlarVida();
+       switch(co){
+         case 0: if(siHayPreg == false){
+                   addObject(m, 300, 30);  addObject(v, 580, 30);
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("b")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = true; break;
+                 
+         case 1: if(siHayPreg == true){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("c")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = false; break;
+                 
+         case 2: if(siHayPreg == false){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("b")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = true; break;
+                 
+         case 3: if(siHayPreg == true){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("c")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = false; break;
+                 
+         case 4: if(siHayPreg == false){
+                   preparar();
+                 }
+                 if(Greenfoot.isKeyDown("a")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = true; break;
+                 
+         case 5: if(siHayPreg == true){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("c")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = false; break;
+                 
+         case 6: if(siHayPreg == false){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("a")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = true; break;
+                 
+         case 7: if(siHayPreg == true){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("a")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = false; break;
+                 
+         case 8: if(siHayPreg == false){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("c")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = true; break;
+                 
+         case 9: if(siHayPreg == true){
+                   preparar();
+                 }
+                 Pista();
+                 if(Greenfoot.isKeyDown("c")){
+                   responder();
+                 }
+                 verificarRespuesta();
+                 siHayPreg = false; break;
+                 
+         case 10: if(siHayPreg == false){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("b")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = true; break;
+                  
+         case 11: if(siHayPreg == true){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("b")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = false; break;
+                  
+         case 12: if(siHayPreg == false){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("b")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = true; break;
+                 
+         case 13: if(siHayPreg == true){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("c")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = false; break;
+                 
+         case 14: if(siHayPreg == false){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("b")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = true; break;
+                  
+         case 15: if(siHayPreg == true){
+                    preparar();
+                  }
+                  Pista();
+                  if(Greenfoot.isKeyDown("a")){
+                    responder();
+                  }
+                  verificarRespuesta();
+                  siHayPreg = false; break;
+       }
+      }
+   
+    private void crearBotones(){
+      int y = 340;
+      for(int i=0; i<3; i++){
+         buttom[i] = new Boton();
+         addObject(buttom[i], 500, y);
+         y = y + 60;
+      }        
+    }
+    
+    private void verificarBoolean(){
+      if((siHayPreg == true)&&(co==0)){
+        co++;  
+      }
+      if((siHayPreg == true)&&((co%2)==0)){
+        co--;
+      } 
+      if((siHayPreg == false)&&((co%2)==1)){
+        co++;
+      } 
+    }
+    
+    private void Pista(){
+      if(Greenfoot.isKeyDown("space")&&(m.m >= 100)){
+        Greenfoot.playSound("Monedas.wav");
+        System.out.print("\n PISTA \n\n"+preg.pista[co]+" \n\n");
+        m.m = m.m-100;
+      }
+    }
+    
+    public void preparar(){
+      removeObject(l); cont.setContador(30);
+      addObject(preg.crearPregunta(co), 500, 200);
+      crearBotones();
+      addObject(preg.respuesta1(co),500, 340);
+      addObject(preg.respuesta2(co),500, 400);
+      addObject(preg.respuesta3(co),500, 460);
+      respuestaCorrecta = false;  
+    }
+    
+    public void responder(){
+      respuestaCorrecta= true;
+      l = new Label2("¡RESPUESTA CORRECTA!",80);
+      addObject(l, 500, 300);
+      Greenfoot.playSound("Correct Answer.wav");
+      m.addMonedas((cont.getContador()));
+      QuitarObjetos();
+      co = Greenfoot.getRandomNumber(15);
+      verificarBoolean();
+      C++;
+    }
+    
+    private void verificarRespuesta(){
+      if((Greenfoot.isKeyDown("a")||Greenfoot.isKeyDown("b")||Greenfoot.isKeyDown("c"))&&(respuestaCorrecta==false)){
+        QuitarObjetos();
+        l = new Label2("¡RESPUESTA INCORRECTA!",80);
+        addObject(l, 550, 300);
+        Greenfoot.playSound("Incorrect Answer.wav");
+        v.disminuir();QuitarObjetos();
+        co = Greenfoot.getRandomNumber(15);
+        verificarBoolean();
+      }
+    }
+    
+    private void controlarVida(){
+      if(cont.getContador() <= 0){
+        QuitarObjetos();
+        v.disminuir();
+        cont.setContador(0);
+        addObject(preg.crearPregunta(co), 500, 150);
+        crearBotones();
+        addObject(preg.respuesta1(co),500,310);
+        addObject(preg.respuesta2(co),500,370);
+        addObject(preg.respuesta3(co),500,430);
+        co = Greenfoot.getRandomNumber(15);
+        verificarBoolean();
+        QuitarObjetos();
+      }
+      if(C == 16){
+        QuitarObjetos();
+        Greenfoot.playSound("Ganador.wav");QuitarObjetos();
+        Label2 win = new Label2("¡W I N N E R!", 50);
+        addObject(win, 500, 270);
+        Greenfoot.stop();
+      }
+    }
+    
+    private void QuitarObjetos(){
+      for(int i=0; i<3; i++){
+        removeObject(buttom[i]);
+      }
+      for(int i=0; i<4; i++){
+        removeObject(preg.pregunta[i]);
+      }
+    }
+}
