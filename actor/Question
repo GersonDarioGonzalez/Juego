@@ -1,0 +1,114 @@
+import greenfoot.*;
+
+public class Question extends Actor
+{  public Label pregunta[] = new Label[4];
+   public String pista[] = new String[17];
+   
+   public Question(){
+     pista[0] = " You are a teacher \n Tú eres un(a) profesor(a) ";  
+     pista[1] = " 2 es divisible por 1 y el mismo \n 89 es divisible por 1 y el mismo \n 63 es divisible por 1, 3, 7, 9 y el mismo ";
+     pista[2] = " Se sabe que Colombia duró 9 años en combate y que alcanzó la independencia total en la batalla de Boyacá \n ''La Batalla de Boyacá se llevo a cabo en 1819'' ";  
+     pista[3] = " x^4 = 16  y  x^2 = 4 ";
+     pista[4] = " ''Blonde'' es sinónimo de la palabra ''rubio'' ";
+     pista[5] = " Descarta la opción ''A'' ";
+     pista[6] = " Descarta la opción ''B'' \n Herencia Múltiple = Una clase hija hereda de DOS clases padres ";
+     pista[7] = " JAVA es un lenguaje de Programación orientada a Objetos (POO) ";
+     pista[8] = " Descarta la opción ''A'' ";
+     pista[9] = " El acual campeón de la competicion es el que tiene más champions ";
+     pista[10] = " Propiedad de Logaritmos: \n Ln(a^x/b^x) = Ln(a/b) ";
+     pista[11] = " El nombre del idioma termina en ''a'' ";
+     pista[12] = " Son grupos 8 grupos ordenados alfabeticamente, colombia está en el ultimo ";
+     pista[13] = " Stuff = cosas pesadas \n Descarte la opción ''A'' " ;
+     pista[14] = " Juega en el bayern munich ";
+     pista[15] = " La respuesta correcta es el antónimo de: Río pobre ";
+     pista[16] = " APRENDIZAJE DIDACTICO EN EL AULA DE CLASE \n\n Consta de 15 preguntas \n\n Oprime la tecla ''A'', ''B'' o ''C'' para responder la pregunta. \n\n Cuando tengas acumuladas 100 monedas, \n oprime la barra espaciadora para obtener una pista.\n La Pista saldrá en una nueva ventana. \n\n ¡APRESÚRATE!\n Solo tendrás 30 segundos para responder\n y 3 vidas para completar el objetivo. \n\n BUENA SUERTE. ";
+    }
+   
+   public Label crearPregunta(int cont){
+      switch (cont){
+        case 0: pregunta[0] = new Label ("¿Cómo se escribe el pronombre \n ''Tú'' en Inglés?", 55); break;
+        case 1: pregunta[0] = new Label ("No es un número primo", 55); break;
+        case 2: pregunta[0] = new Label ("Año en que empezó la independencia \nColombiana", 55); break; 
+        case 3: pregunta[0] = new Label ("Halle f(x) si x=2. \n f(x)= x^4 - x^2 + 5", 55); break;
+        case 4: pregunta[0] = new Label ("¿Qué traduce la frase? \n ''My siblings are blonde''", 55); break;
+        case 5: pregunta[0] = new Label ("¿Qué sucede en la siguiente línea de código? \n Imagen I1 = new Imagen();", 50); break;
+        case 6: pregunta[0] = new Label ("¿ JAVA implementa la Herencia Múltiple?", 55); break;
+        case 7: pregunta[0] = new Label ("Es un Entorno de desarrollo Integrado", 55); break;
+        case 8: pregunta[0] = new Label ("Capital de Australia", 55); break;
+        case 9: pregunta[0]= new Label ("¿Cúal es el equipo mas veces ganador \n de la champions league", 55); break;
+        case 10: pregunta[0] = new Label ("Derive: y = Ln(5^x/2^x)", 55); break;
+        case 11: pregunta[0] = new Label ("Idioma Que hablaban los Incas", 55); break;
+        case 12: pregunta[0] = new Label ("¿En que grupo quedó colombia en el mundial", 55); break;
+        case 13: pregunta[0] = new Label ("Transporte acuatico que moviliza \n cargas y personas", 55); break;
+        case 14: pregunta[0] = new Label ("¿Quien es el mejor jugador de colombia en la actualidad?", 45); break;
+        case 15: pregunta[0] = new Label ("Este pais no limita con Mexico", 55); break;
+      }
+      return pregunta[0];
+    }
+   public Label respuesta1(int cont){
+      switch(cont){
+        case 0: pregunta[1] = new Label("A: Your", 40); break;
+        case 1: pregunta[1] = new Label("A: 2", 40); break;
+        case 2: pregunta[1] = new Label("A: 1809", 40); break;
+        case 3: pregunta[1] = new Label("A: 15", 40); break;
+        case 4: pregunta[1] = new Label("A: Mis hermanos son rubios", 35); break;
+        case 5: pregunta[1] = new Label("A: Se crea un Referencia \na I1", 27); break;
+        case 6: pregunta[1] = new Label("A: Falso", 40); break;
+        case 7: pregunta[1] = new Label("A: Sublime", 40); break;
+        case 8: pregunta[1] = new Label("A: Sidney", 40); break;
+        case 9: pregunta[1] = new Label("A: Barcelona", 30); break;
+        case 10: pregunta[1] = new Label("A: y = (2^x/5^x)", 40); break;
+        case 11: pregunta[1] = new Label("A: Quepsiew", 40); break;
+        case 12: pregunta[1] = new Label("A: B", 40); break;
+        case 13: pregunta[1] = new Label("A: A ship", 40); break;
+        case 14: pregunta[1] = new Label("A: Cristiano Ronaldo", 40); break;
+        case 15: pregunta[1] = new Label("A: Costa Rica", 40); break;
+      }
+      return pregunta[1];
+   }
+   public Label respuesta2(int cont){
+      switch(cont){
+        case 0: pregunta[2] = new Label("B: You", 40); break;
+        case 1: pregunta[2] = new Label("B: 89", 40); break;
+        case 2: pregunta[2] = new Label("B: 1810", 40); break;
+        case 3: pregunta[2] = new Label("B: 16", 40); break;
+        case 4: pregunta[2] = new Label("B: Mis hermanos son morenos", 35); break;
+        case 5: pregunta[2] = new Label("B: Se crea un objeto de la clase \nImagen", 27); break;
+        case 6: pregunta[2] = new Label("B: Verdadero", 40); break;
+        case 7: pregunta[2] = new Label("B: JAVA", 40); break;
+        case 8: pregunta[2] = new Label("B: Perth", 40); break;
+        case 9: pregunta[2] = new Label("B: Bayern Munich", 30); break;
+        case 10: pregunta[2] = new Label("B: y = Ln(5/2)", 40); break;
+        case 11: pregunta[2] = new Label("B: Quechua", 40); break;
+        case 12: pregunta[2] = new Label("B: H", 40); break;
+        case 13: pregunta[2] = new Label("B: A boat", 40); break;
+        case 14: pregunta[2] = new Label("B: James Rodriguez", 40); break;
+        case 15: pregunta[2] = new Label("B: Guatemala", 40); break;
+      }
+      return pregunta[2];
+   }
+   public Label respuesta3(int cont){
+      switch(cont){
+        case 0: pregunta[3] = new Label("C: Yours", 40); break;
+        case 1: pregunta[3] = new Label("C: 63", 40); break;
+        case 2: pregunta[3] = new Label("C: 1811", 40); break;
+        case 3: pregunta[3] = new Label("C: 17", 40); break;
+        case 4: pregunta[3] = new Label("C: Mis hermanos son mellizos", 35); break;
+        case 5: pregunta[3] = new Label("C: Se crea una referencia a un objeto \nde la clase Imagen", 27); break;
+        case 6: pregunta[3] = new Label("C: Depende", 40); break;
+        case 7: pregunta[3] = new Label("C: C++", 40); break;
+        case 8: pregunta[3] = new Label("C: Canberra", 40); break;
+        case 9: pregunta[3] = new Label("C: Real Madrid", 26); break;
+        case 10: pregunta[3] = new Label("C: y = Ln x(2/5)", 40); break;
+        case 11: pregunta[3] = new Label("C: Quepshac", 40); break;
+        case 12: pregunta[3] = new Label("C: X", 40); break;
+        case 13: pregunta[3] = new Label("C: A ferry", 40); break;
+        case 14: pregunta[3] = new Label("C: Messi", 40); break;
+        case 15: pregunta[3] = new Label("C: El Salvador", 40); break;
+      }
+      return pregunta[3];
+   }
+    public void act() 
+    { 
+    }    
+}
