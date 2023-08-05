@@ -1,0 +1,19 @@
+import greenfoot.*;
+
+
+public class Vida extends Actor
+{   public int v=3;
+    private Label l;
+    
+    public void disminuir(){
+      v--;
+      if(v == 0){
+        l = new Label("G A M E   O V E R", 50);
+        getWorld().addObject(l, 569, 270);
+        Greenfoot.stop();
+      }
+    }
+    public void act() 
+    {  setImage(new GreenfootImage("Vidas: "+v, 24, Color.GREEN, Color.BLACK));
+    }    
+}
